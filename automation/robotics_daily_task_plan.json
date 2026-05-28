@@ -1,0 +1,58 @@
+{
+  "project_theme": "五子棋机器人实时摄像头泛化验证 + 北航灵巧手实验室准备",
+  "rules": [
+    "每天至少推进一个能展示的机器人项目证据",
+    "当天任务优先于临时焦虑和泛泛刷课",
+    "如果当天没完成，晚上必须写未完成原因和补救动作"
+  ],
+  "weekday_tasks": {
+    "0": {
+      "title": "周一：定周目标 + 健康检查",
+      "project": "运行五子棋项目 benchmark 和 pytest，确认本周起点；更新本周追踪表。",
+      "study": "C++ STL 或 ROS2 基础 60 分钟。",
+      "artifact": "一份本周目标记录 + 当前 benchmark/test 输出。"
+    },
+    "1": {
+      "title": "周二：实时视觉数据采集",
+      "project": "用 live_vision_monitor 采集 5-10 张新图，覆盖空棋盘、黑棋、白棋、混合局面。",
+      "study": "OpenCV ROI/HSV/阈值方法 45-60 分钟。",
+      "artifact": "live_benchmark 日期目录 + 原图/检测图。"
+    },
+    "2": {
+      "title": "周三：标注 + benchmark",
+      "project": "填写 live benchmark 的 label.txt，运行 benchmark_vision，记录黑白棋召回率和误检。",
+      "study": "数据结构或 LeetCode BFS/哈希 60 分钟。",
+      "artifact": "一份 benchmark 输出或 docs 记录。"
+    },
+    "3": {
+      "title": "周四：修一个真实问题",
+      "project": "根据 benchmark 漏检/误检，只修一个最关键问题；跑测试并 commit。",
+      "study": "视觉/控制相关英文资料 20-30 分钟。",
+      "artifact": "一个 commit 或一份失败分析记录。"
+    },
+    "4": {
+      "title": "周五：项目包装 + 联系",
+      "project": "更新 README/项目说明/演示材料，把本周实验结果写成能给老师看的材料。",
+      "study": "英文项目介绍或面试讲稿 30 分钟。",
+      "artifact": "一段项目说明 + 联系 1 位导师/学长/实验室。"
+    },
+    "5": {
+      "title": "周六：深度项目块",
+      "project": "做 2-3 小时连续项目块：视频、报告、机械臂接口、实时视觉任选一个推进。",
+      "study": "LeetCode 2 题或 C++ 工程训练 90 分钟。",
+      "artifact": "视频/截图/技术报告/代码提交至少一个。"
+    },
+    "6": {
+      "title": "周日：硬指标复盘",
+      "project": "复盘本周 5 个指标，决定下周第一项目和第一步。",
+      "study": "查漏补缺 60 分钟。",
+      "artifact": "周复盘 + 下周计划。"
+    }
+  },
+  "fallback_task": {
+    "title": "默认推进任务",
+    "project": "推进五子棋机器人项目 90 分钟，并留下一个可展示证据。",
+    "study": "C++/ROS2/控制/视觉中选一个学习 60 分钟。",
+    "artifact": "Git commit、benchmark 结果、截图、视频或技术记录。"
+  }
+}

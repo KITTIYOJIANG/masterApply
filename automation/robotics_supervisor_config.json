@@ -1,0 +1,40 @@
+{
+  "identity": "会 AI/代码的机器人与无人系统算法工程师",
+  "main_line": "规划控制 + 机器人系统 + 视觉/学习",
+  "active_project": "五子棋机器人：真实棋盘视觉 + AI 决策 + 机械臂接口",
+  "weekly_targets": {
+    "study_hours": 15,
+    "project_hours": 15,
+    "leetcode_count": 5,
+    "english_hours": 3,
+    "contact_count": 5
+  },
+  "daily_minimum": {
+    "study_minutes": 60,
+    "project_minutes": 90,
+    "leetcode_count": 1,
+    "english_minutes": 20,
+    "contact_count": 0
+  },
+  "focus_rules": [
+    "先做能增强机器人算法候选人身份的项目",
+    "每天必须留下一个可展示成果或明确证据",
+    "不要重新纠结方向，不要泛泛刷课",
+    "五子棋机器人优先推进实时摄像头泛化验证"
+  ],
+  "weekly_review_metrics": [
+    "代码提交次数",
+    "项目进度",
+    "题目数",
+    "联系数",
+    "可展示成果"
+  ],
+  "today_default_tasks": {
+    "study": "C++/ROS2/控制/视觉中选一个补 60 分钟",
+    "project": "推进五子棋机器人实时摄像头 benchmark 或项目报告 90 分钟",
+    "leetcode": "完成 1 道数组/哈希/BFS 题",
+    "english": "读 20 分钟 robotics/vision 英文资料并摘 3 句",
+    "contact": "整理或联系 0-1 位导师/实验室/公司",
+    "artifact": "留下 Git commit、benchmark 结果、截图、视频或技术记录"
+  }
+}

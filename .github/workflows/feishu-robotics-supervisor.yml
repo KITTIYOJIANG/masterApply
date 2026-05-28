@@ -1,0 +1,59 @@
+name: Feishu Robotics Supervisor
+
+on:
+  schedule:
+    # Asia/Shanghai 08:00
+    - cron: "0 0 * * *"
+    # Asia/Shanghai 22:00
+    - cron: "0 14 * * *"
+    # Asia/Shanghai Sunday 21:00
+    - cron: "0 13 * * 0"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Card mode to send"
+        type: choice
+        required: true
+        default: "morning"
+        options:
+          - morning
+          - evening
+          - sunday
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Send morning card
+        if: github.event_name == 'schedule' && github.event.schedule == '0 0 * * *'
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
+        run: python automation/feishu_supervisor.py --mode morning
+
+      - name: Send evening card
+        if: github.event_name == 'schedule' && github.event.schedule == '0 14 * * *'
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
+        run: python automation/feishu_supervisor.py --mode evening
+
+      - name: Send sunday review card
+        if: github.event_name == 'schedule' && github.event.schedule == '0 13 * * 0'
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
+        run: python automation/feishu_supervisor.py --mode sunday
+
+      - name: Send manual card
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
+        run: python automation/feishu_supervisor.py --mode "${{ inputs.mode }}"
