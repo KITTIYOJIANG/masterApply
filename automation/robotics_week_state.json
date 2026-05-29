@@ -1,11 +1,11 @@
 {
   "week": "2026-05-25",
-  "study_hours": 0,
+  "study_hours": 0.5,
   "project_hours": 0,
-  "leetcode_count": 0,
+  "leetcode_count": 0.5,
   "english_hours": 0,
-  "contact_count": 0,
+  "contact_count": 1,
   "commit_count": 0,
-  "artifact": "待更新",
-  "project_progress": "五子棋机器人静态视觉 benchmark 已完成，下一步实时摄像头泛化验证"
+  "artifact": "PWM 控制学习记录 + 中科院具身智能导师联系记录",
+  "project_progress": "五子棋机器人静态视觉 benchmark 已完成；live benchmark 标注和新数据 benchmark 尚未推进"
 }
