@@ -142,7 +142,7 @@ def build_morning_card(config: dict, state: dict, now: dt.datetime, task_plan: d
         [
             card_div("**本周进度条**\n" + progress),
             card_div("**今天的规矩**\n" + rules),
-            card_div("晚上 22:00 会追问你交账。别让未来的自己来擦屁股。")
+            card_div("晚上 22:10 会追问你交账。别让未来的自己来擦屁股。")
         ]
     )
     return make_card(

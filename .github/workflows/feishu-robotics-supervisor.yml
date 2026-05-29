@@ -2,12 +2,11 @@ name: Feishu Robotics Supervisor
 
 on:
   schedule:
-    # Asia/Shanghai 08:00
-    - cron: "0 0 * * *"
-    # Asia/Shanghai 22:00
-    - cron: "0 14 * * *"
-    # Asia/Shanghai Sunday 21:00
-    - cron: "0 13 * * 0"
+    # GitHub cron uses UTC. These run at Asia/Shanghai 08:10, 22:10, and Sunday 21:10.
+    # Avoiding minute 0 reduces the chance of scheduled workflow delay or drop.
+    - cron: "10 0 * * *"
+    - cron: "10 14 * * *"
+    - cron: "10 13 * * 0"
   workflow_dispatch:
     inputs:
       mode:
@@ -31,21 +30,21 @@ jobs:
           python-version: "3.12"
 
       - name: Send morning card
-        if: github.event_name == 'schedule' && github.event.schedule == '0 0 * * *'
+        if: github.event_name == 'schedule' && github.event.schedule == '10 0 * * *'
         env:
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
           FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
         run: python automation/feishu_supervisor.py --mode morning
 
       - name: Send evening card
-        if: github.event_name == 'schedule' && github.event.schedule == '0 14 * * *'
+        if: github.event_name == 'schedule' && github.event.schedule == '10 14 * * *'
         env:
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
           FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
         run: python automation/feishu_supervisor.py --mode evening
 
       - name: Send sunday review card
-        if: github.event_name == 'schedule' && github.event.schedule == '0 13 * * 0'
+        if: github.event_name == 'schedule' && github.event.schedule == '10 13 * * 0'
         env:
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
           FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
